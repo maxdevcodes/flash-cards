@@ -1,18 +1,30 @@
 <template>
-    <div class="card-container">
+    <div :class="['card-container', {'answered': isAnswered}]">
         <div class="inner">
             <div class="card-front">
                 <h2 class="question">Question?</h2>
+                <input type="text" name="answer" id="answer" placeholder="Your answer" v-model="currentAnswer">
+                <button class="btn" @click="isAnswered = !isAnswered">Submit anwser</button>
             </div>
             <div class="card-back">
-                <p class="answer">Answer: ...</p>
+                <h3>Answer:</h3>
+                <p>The correct answer</p>
+                <h3>Your answer</h3>
+                <p>{{ currentAnswer }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            currentAnswer: '',
+            isAnswered: false,
+        };
+    }
+};
 </script>
 
 <style scoped>
@@ -24,7 +36,7 @@ export default {};
     perspective: 1200px;
 }
 
-.card-container:hover .inner {
+.card-container.answered:hover .inner {
     transform: rotateY(-180deg);
 }
 
