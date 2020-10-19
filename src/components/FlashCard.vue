@@ -3,8 +3,10 @@
         <div class="inner">
             <div class="card-front">
                 <h2 class="question">Question?</h2>
-                <input type="text" name="answer" id="answer" placeholder="Your answer" v-model="currentAnswer">
-                <button class="btn" @click="isAnswered = !isAnswered">Submit anwser</button>
+                <div class="user-answer-container">
+                    <input type="text" name="answer" id="answer" placeholder="Your answer" v-model="currentAnswer">
+                    <button class="btn" @click="isAnswered = !isAnswered">Submit anwser</button>
+                </div>
             </div>
             <div class="card-back">
                 <h3>Answer:</h3>
@@ -62,5 +64,37 @@ export default {
 
 .card-back {
     transform: rotateY(180deg);
+}
+
+.user-answer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+input[type=text] {
+    background: none;
+    border: 1px solid #ffffff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+input[type=text]::placeholder {
+    color: #d2d2d2;
+}
+
+.btn {
+    background: #41b883;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 10px auto;
 }
 </style>
