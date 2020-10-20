@@ -13,6 +13,12 @@
                 <p>The correct answer</p>
                 <h3>Your answer</h3>
                 <p>{{ currentAnswer }}</p>
+                <h3>How was my answer?</h3>
+                <div class="rate-answer-container">
+                    <button class="btn">Good</button>
+                    <button class="btn">Could improve</button>
+                    <button class="btn">Need to check again</button>
+                </div>
             </div>
         </div>
     </div>
@@ -32,8 +38,8 @@ export default {
 <style scoped>
 .card-container {
     color: #fff;
-    max-width: 400px;
-    height: 300px;
+    max-width: 500px;
+    height: 400px;
     margin: 0 auto;
     perspective: 1200px;
 }
@@ -96,5 +102,12 @@ input[type=text]::placeholder {
     cursor: pointer;
     padding: 10px 15px;
     margin: 10px auto;
+}
+
+.rate-answer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 </style>
