@@ -2,7 +2,7 @@
     <div :class="['card-container', {'answered': isAnswered}]">
         <div class="inner">
             <div class="card-front">
-                <h2 class="question">Question?</h2>
+                <h2 class="question">{{ question.text }}</h2>
                 <div class="user-answer-container">
                     <input type="text" name="answer" id="answer" placeholder="Your answer" v-model="currentAnswer">
                     <button class="btn" @click="isAnswered = !isAnswered">Submit anwser</button>
@@ -10,7 +10,7 @@
             </div>
             <div class="card-back">
                 <h3>Answer:</h3>
-                <p>The correct answer</p>
+                <p>{{ question.answer }}</p>
                 <h3>Your answer</h3>
                 <p>{{ currentAnswer }}</p>
                 <h3>How was my answer?</h3>
@@ -28,6 +28,11 @@
 export default {
     data() {
         return {
+            question: {
+                text: 'Question?',
+                answer: 'The correct answer',
+                accuracy: 0,
+            },
             currentAnswer: '',
             isAnswered: false,
         };
