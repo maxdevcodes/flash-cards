@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <flash-card></flash-card>
+    <flash-card :content="question"></flash-card>
     <div class="deck-buttons-container">
       <button class="btn">Previous</button>
       <button class="btn">Next</button>
@@ -13,6 +13,15 @@ import FlashCard from '@/components/FlashCard.vue';
 
 export default {
   name: "Home",
+  data() {
+    return {
+      question: {
+        text: 'Question?',
+        answer: 'The correct answer',
+        accuracy: 0,
+      },
+    }
+  },
   components: {
     FlashCard
   }

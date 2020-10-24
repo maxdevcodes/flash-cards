@@ -26,13 +26,21 @@
 
 <script>
 export default {
-    data() {
-        return {
-            question: {
+    props: {
+        content: {
+            type: Object,
+            default: function() {
+                return {
                 text: 'Question?',
                 answer: 'The correct answer',
                 accuracy: 0,
-            },
+                }
+            }
+        }
+    },
+    data() {
+        return {
+            question: this.content,
             currentAnswer: '',
             isAnswered: false,
         };
