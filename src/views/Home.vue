@@ -1,29 +1,29 @@
 <template>
-  <div class="home">
-    <flash-card :content="question"></flash-card>
-    <div class="deck-buttons-container">
-      <button class="btn">Previous</button>
-      <button class="btn">Next</button>
+  <div class="container">
+    <div class="topics-container">
+      <div class="topic" v-for="topic in topics" :key="topic.id">
+        <h2>{{topic.name}}</h2>
+        <router-link to="/cardset" class="btn">Study</router-link>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import FlashCard from '@/components/FlashCard.vue';
 
 export default {
   name: "Home",
   data() {
     return {
-      question: {
-        text: 'Question?',
-        answer: 'The correct answer',
-        accuracy: 0,
-      },
+      topics : [
+        {
+          id: 0,
+          name: 'Topic #0',
+        }
+      ],
     }
   },
   components: {
-    FlashCard
   }
 };
 </script>
@@ -31,10 +31,22 @@ export default {
 <style>
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }
 
-.deck-buttons-container .btn {
-  margin: 10px;
+.container {
+  max-width: 1200px;
+  padding: 20px 30px;
+}
+
+.topics-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.topic {
+  max-width: 400px;
 }
 
 .btn {
