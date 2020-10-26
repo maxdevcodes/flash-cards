@@ -46,13 +46,18 @@ export default {
 }
 
 .topic {
-  max-width: 400px;
+  max-width: 250px;
+  width: 100%;
+  padding: 20px;
+  border: 2px solid #2c3e50;
+  border-radius: 10px;
 }
 
 .btn {
     background: #41b883;
     border-radius: 5px;
     border: none;
+    display: inline-block;
     color: white;
     cursor: pointer;
     padding: 10px 15px;
