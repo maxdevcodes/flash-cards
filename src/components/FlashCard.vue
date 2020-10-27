@@ -4,7 +4,7 @@
             <div class="card-front">
                 <h2 class="question">{{ question.text }}</h2>
                 <div class="user-answer-container">
-                    <input type="text" name="answer" id="answer" placeholder="Your answer" v-model="currentAnswer">
+                    <textarea name="answer" id="answer" cols="40" rows="10" placeholder="Your answer" v-model="currentAnswer"></textarea>
                     <button class="btn" @click="isAnswered = !isAnswered">Submit anwser</button>
                 </div>
             </div>
@@ -93,7 +93,7 @@ export default {
     padding: 20px;
 }
 
-input[type=text] {
+textarea {
     background: none;
     border: 1px solid #ffffff;
     padding: 5px 10px;
@@ -101,9 +101,11 @@ input[type=text] {
     color: #fff;
     margin-bottom: 15px;
     font-size: 16px;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    resize: none;
 }
 
-input[type=text]::placeholder {
+textarea::placeholder {
     color: #d2d2d2;
 }
 
