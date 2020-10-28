@@ -23,6 +23,9 @@ export default {
       ],
     }
   },
+  created () {
+    this.topics = this.$store.getters.getTopics;
+  },
   components: {
   }
 };
@@ -37,6 +40,7 @@ export default {
 .container {
   max-width: 1200px;
   padding: 20px 30px;
+  margin: 0 auto;
 }
 
 .topics-container {
