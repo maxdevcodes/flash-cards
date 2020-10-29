@@ -43,8 +43,13 @@ export default {
             question: this.content,
             currentAnswer: '',
             isAnswered: false,
+            cards: []
         };
-    }
+    },
+    created () {
+        const cardset = this.$store.getters.getCards('vue');
+        this.cards = cardset.cards;
+    },
 };
 </script>
 
