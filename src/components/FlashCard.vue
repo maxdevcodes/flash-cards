@@ -15,9 +15,9 @@
                 <p>{{ currentAnswer }}</p>
                 <h3>How was my answer?</h3>
                 <div class="rate-answer-container">
-                    <button class="btn">Good</button>
-                    <button class="btn">Could improve</button>
-                    <button class="btn">Need to check again</button>
+                    <button class="btn" @click="accuracyUpdate(2)">Good</button>
+                    <button class="btn" @click="accuracyUpdate(1)">Could improve</button>
+                    <button class="btn" @click="accuracyUpdate(0)">Need to check again</button>
                 </div>
             </div>
         </div>
@@ -44,6 +44,11 @@ export default {
             currentAnswer: '',
             isAnswered: false,
         };
+    },
+    methods: {
+        accuracyUpdate(n) {
+            this.accuracy = n;
+        }
     },
 };
 </script>
