@@ -2,7 +2,7 @@
     <div :class="['card-container', {'answered': isAnswered}]">
         <div class="inner">
             <div class="card-front">
-                <h2 class="question">{{ question.text }}</h2>
+                <h2 class="question">{{ content.text }}</h2>
                 <div class="user-answer-container">
                     <textarea name="answer" id="answer" cols="40" rows="10" placeholder="Your answer" v-model="currentAnswer"></textarea>
                     <button class="btn" @click="isAnswered = !isAnswered">Submit anwser</button>
@@ -10,7 +10,7 @@
             </div>
             <div class="card-back">
                 <h3>Answer:</h3>
-                <p>{{ question.answer }}</p>
+                <p>{{ content.answer }}</p>
                 <h3>Your answer</h3>
                 <p>{{ currentAnswer }}</p>
                 <h3>How was my answer?</h3>
