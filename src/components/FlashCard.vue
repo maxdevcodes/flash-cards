@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         accuracyUpdate(n) {
-            this.accuracy = n;
+            this.$store.commit('setAccuracy', { cardset: 'vue', cardId: this.content.id, newAccuracy: n});
         }
     },
 };

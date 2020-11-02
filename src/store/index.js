@@ -27,7 +27,11 @@ export default createStore({
       });
     }
   },
-  mutations: {},
+  mutations: {
+    setAccuracy(state, payload) {
+      state.cardset.find(e => e.set == payload.cardset).cards.find(e => e.id == payload.cardId).accuracy = payload.newAccuracy;
+    }
+  },
   actions: {},
   modules: {}
 });
