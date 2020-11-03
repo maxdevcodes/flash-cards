@@ -9,9 +9,12 @@ export default createStore({
     cardset: [
       {
         set: 'vue', 
+        currentSequence: [],
         cards: [
           {id:0, text: 'Question 1?', answer: 'correct answer', accuracy: 0},
-          {id:1, text: 'Question 2?', answer: 'correct answer', accuracy: 0}
+          {id:1, text: 'Question 2?', answer: 'correct answer', accuracy: 0},
+          {id:2, text: 'Question 3?', answer: 'correct answer', accuracy: 0},
+          {id:3, text: 'Question 4?', answer: 'correct answer', accuracy: 0}
         ]
       }
     ]
@@ -23,7 +26,23 @@ export default createStore({
     },
     getCards: state => topic => {      
       return state.cardset.find(e => {
-        return e.set == topic
+        if(e.set == topic) {
+          e.currentSequence = e.cards.map(e => {
+            return e.id
+          });
+
+          e.currentSequence.forEach((card, i) => {
+            console.log(e, i);
+            let j = Math.floor(Math.random() * i);
+            let aux = e.currentSequence[i];
+            e.currentSequence[i] = e.currentSequence[j];
+            e.currentSequence[j] = aux;  
+          });
+
+          return true; 
+        }else {
+          return false;
+        }
       });
     }
   },
