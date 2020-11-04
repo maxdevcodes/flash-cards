@@ -32,7 +32,6 @@ export default createStore({
           });
 
           e.currentSequence.forEach((card, i) => {
-            console.log(e, i);
             let j = Math.floor(Math.random() * i);
             let aux = e.currentSequence[i];
             e.currentSequence[i] = e.currentSequence[j];

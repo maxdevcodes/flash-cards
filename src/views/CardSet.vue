@@ -1,5 +1,7 @@
 <template>
     <div>
+        {{cardsOrder}}
+        {{cardIndex}}
         <flash-card :content="question"></flash-card>
         <div class="deck-buttons-container">
             <button class="btn">Previous</button>
@@ -19,7 +21,9 @@ export default {
                 answer: "The correct answer",
                 accuracy: 0
             },
-            cards: []
+            cards: [],
+            cardsOrder: [],
+            cardIndex: 0,
         };
     },
     components: {
@@ -28,16 +32,15 @@ export default {
     created () {
         const cardset = this.$store.getters.getCards('vue');
         this.cards = cardset.cards;
-        this.question = cardset.cards[0];
+        this.question = cardset.cards[cardset.currentSequence[0]];
+        this.cardsOrder = cardset.currentSequence;
     },
     methods: {
         nextCard() {
-            console.log("a");
             this.question = this.cards.find(elem => {
-                return elem.id == (this.question.id + 1);
+                return elem.id == this.cardsOrder[this.cardIndex + 1];
             });
-            console.log(this.question);
-            this.question.text = "aaa"
+            this.cardIndex = (this.cardIndex + 1) % this.cardsOrder.length;
         }
     },
 };
