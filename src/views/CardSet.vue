@@ -37,10 +37,11 @@ export default {
     },
     methods: {
         nextCard() {
-            this.question = this.cards.find(elem => {
-                return elem.id == this.cardsOrder[this.cardIndex + 1];
-            });
             this.cardIndex = (this.cardIndex + 1) % this.cardsOrder.length;
+
+            this.question = this.cards.find(elem => {
+                return elem.id == this.cardsOrder[this.cardIndex];
+            });
         }
     },
 };
