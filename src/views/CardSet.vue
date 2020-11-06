@@ -4,7 +4,7 @@
         {{cardIndex}}
         <flash-card :content="question"></flash-card>
         <div class="deck-buttons-container">
-            <button class="btn">Previous</button>
+            <button class="btn" @click="previousCard()">Previous</button>
             <button class="btn" @click="nextCard()">Next</button>
         </div>
     </div>
@@ -39,6 +39,13 @@ export default {
         nextCard() {
             this.cardIndex = (this.cardIndex + 1) % this.cardsOrder.length;
 
+            this.question = this.cards.find(elem => {
+                return elem.id == this.cardsOrder[this.cardIndex];
+            });
+        },
+        previousCard() {
+            this.cardIndex = (this.cardIndex == 0 ? this.cardsOrder.length-1 : this.cardIndex - 1)
+            
             this.question = this.cards.find(elem => {
                 return elem.id == this.cardsOrder[this.cardIndex];
             });
