@@ -1,7 +1,5 @@
 <template>
     <div>
-        {{cardsOrder}}
-        {{cardIndex}}
         <flash-card :content="question"></flash-card>
         <div class="deck-buttons-container">
             <button class="btn" @click="previousCard()">Previous</button>
