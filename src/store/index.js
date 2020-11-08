@@ -3,8 +3,8 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     topics: [
-      {id:0, name:'vue'},
-      {id:1, name:'vuex'},
+      {id:0, name:'vue', description: 'Description for vue set'},
+      {id:1, name:'vuex', description: 'Description for vuex set'},
     ],
     cardset: [
       {

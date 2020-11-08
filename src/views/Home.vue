@@ -3,6 +3,7 @@
     <div class="topics-container">
       <div class="topic" v-for="topic in topics" :key="topic.id">
         <h2>{{topic.name}}</h2>
+        <p>{{topic.description}}</p>
         <router-link to="/cardset" class="btn">Study</router-link>
       </div>
     </div>
@@ -53,6 +54,7 @@ export default {
   max-width: 250px;
   width: 100%;
   padding: 20px;
+  background: white;
   border: 2px solid #2c3e50;
   border-radius: 10px;
 }
